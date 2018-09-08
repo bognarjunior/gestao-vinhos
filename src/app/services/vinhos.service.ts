@@ -8,7 +8,7 @@ import { Vinho } from '../models';
 export class VinhosService {
   constructor() { }
 
-  listar(): Array<Vinho> {
+  listar(): Promise<Array<Vinho>> {
     let vinhos = new Array<Vinho>();
     vinhos.push(
       this.criarVinho(
@@ -32,7 +32,7 @@ export class VinhosService {
         'Chile'
       )
     );
-    return vinhos;
+    return Promise.resolve(vinhos);
   }
 
   private criarVinho(

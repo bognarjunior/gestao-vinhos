@@ -15,6 +15,8 @@ export class VinhosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.vinhos = this.vinhosService.listar();
+    this.vinhosService.listar()
+    .then((vinhos: Array<Vinho>) => this.vinhos = vinhos)
+    .catch((error: any) => console.log(`Erro listar: ${error}`));
   }
 }
