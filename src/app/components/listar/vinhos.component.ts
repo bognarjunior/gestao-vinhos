@@ -3,7 +3,7 @@ import { Vinho } from './../../models';
 import { VinhosService } from './../../services';
 
 @Component({
-  selector: 'app-vinhos',
+  selector: 'listar-vinhos',
   templateUrl: './vinhos.component.html',
   styleUrls: ['./vinhos.component.css']
 })

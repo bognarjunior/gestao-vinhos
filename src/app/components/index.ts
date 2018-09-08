@@ -1,1 +1,2 @@
-export * from './vinhos/vinhos.component';
+export * from './listar/vinhos.component';
+export * from './cadastro/cadastro.component';

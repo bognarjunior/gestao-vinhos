@@ -4,14 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
-import { VinhosComponent } from './components';
+import { VinhosComponent, CadastroComponent } from './components';
 import { VinhosService } from './services';
 import { VinhoApi } from './api';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VinhosComponent
+    VinhosComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
