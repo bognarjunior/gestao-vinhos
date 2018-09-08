@@ -1,3 +1,24 @@
-<p>
-  vinhos works!
-</p>
+<table class="table table-stripped table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Uva</th>
+      <th>Classificação</th>
+      <th>Fabricante</th>
+      <th>Ano de Safra</th>
+      <th>País de Origen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vinho of vinhos">
+      <td>{{vinho.id}}</td>
+      <td>{{vinho.nome}}</td>
+      <td>{{vinho.uva}}</td>
+      <td>{{vinho.classificacao}}</td>
+      <td>{{vinho.fabricante}}</td>
+      <td>{{vinho.anoSafra}}</td>
+      <td>{{vinho.paisOrigen}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -12,27 +12,49 @@ export class VinhosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.vinhos.push();
+    this.vinhos = new Array<Vinho>();
+    this.vinhos.push(
+      this.criarVinho(
+        1, 
+        'Casillero del Diablo', 
+        'Cabernet Sauvignon', 
+        'Tinto Seco', 
+        'Concha y Toro', 
+        2010, 
+        'Chile'
+      )
+    );
+    this.vinhos.push(
+      this.criarVinho(
+        2, 
+        'Casillero del Diablo', 
+        'Merlot', 
+        'Tinto Seco', 
+        'Concha y Toro', 
+        2015, 
+        'Chile'
+      )
+    );
   }
 
   private criarVinho(
     id: number,
     nome: string,
-    classificacao: string,
     uva: string,
+    classificacao: string,
     fabricante: string,
-    paisOrigen: string,
     anoSafra: number,
+    paisOrigen: string,
   ): Vinho {
-    
+
     let vinho: Vinho = new Vinho();
     vinho.id = id ;
     vinho.nome = nome ;
     vinho.classificacao = classificacao ;
     vinho.uva = uva ;
     vinho.fabricante = fabricante ;
-    vinho.paisOrigen = paisOrigen ;
     vinho.anoSafra = anoSafra ;
+    vinho.paisOrigen = paisOrigen ;
     return vinho;
   }
 
