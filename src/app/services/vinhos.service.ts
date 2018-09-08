@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs/Observable';
 
 import { Vinho } from '../models';
 
@@ -6,53 +9,18 @@ import { Vinho } from '../models';
   providedIn: 'root'
 })
 export class VinhosService {
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  listar(): Promise<Array<Vinho>> {
-    let vinhos = new Array<Vinho>();
-    vinhos.push(
-      this.criarVinho(
-        1, 
-        'Casillero del Diablo', 
-        'Cabernet Sauvignon', 
-        'Tinto Seco', 
-        'Concha y Toro', 
-        2010, 
-        'Chile'
-      )
-    );
-    vinhos.push(
-      this.criarVinho(
-        2, 
-        'Casillero del Diablo', 
-        'Merlot', 
-        'Tinto Seco', 
-        'Concha y Toro', 
-        2015, 
-        'Chile'
-      )
-    );
-    return Promise.resolve(vinhos);
+  listar(): Observable<Array<Vinho>> {
+    return this.http.get('api/vinhos')      
+      .map(response => response as Array<Vinho>)
+      .catch(this.tratarErro);
   }
 
-  private criarVinho(
-    id: number,
-    nome: string,
-    uva: string,
-    classificacao: string,
-    fabricante: string,
-    anoSafra: number,
-    paisOrigen: string,
-  ): Vinho {
-
-    let vinho: Vinho = new Vinho();
-    vinho.id = id ;
-    vinho.nome = nome ;
-    vinho.classificacao = classificacao ;
-    vinho.uva = uva ;
-    vinho.fabricante = fabricante ;
-    vinho.anoSafra = anoSafra ;
-    vinho.paisOrigen = paisOrigen ;
-    return vinho;
+  private tratarErro(erro:any): Observable<any> {
+    console.log(erro);
+    return Observable.throw(erro.message | erro);   
   }
 }

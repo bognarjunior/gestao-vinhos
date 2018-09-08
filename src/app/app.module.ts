@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { VinhoApi } from './api';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     InMemoryWebApiModule.forRoot(VinhoApi)
   ],
   providers: [
