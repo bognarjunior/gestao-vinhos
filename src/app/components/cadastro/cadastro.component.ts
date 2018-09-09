@@ -46,6 +46,7 @@ export class CadastroComponent implements OnInit {
   }
 
   salvar(): void {
+    
     this.vinhosService.cadastrar(this.vinho)
     .subscribe(response => {
       console.log(JSON.stringify(response)); 

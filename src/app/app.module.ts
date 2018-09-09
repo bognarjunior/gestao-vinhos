@@ -7,15 +7,17 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing';
 
 import { AppComponent } from './app.component';
-import { VinhosComponent, CadastroComponent } from './components';
+import { VinhosComponent, CadastroComponent, DetalhesComponent } from './components';
 import { VinhosService } from './services';
 import { VinhoApi } from './api';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     VinhosComponent,
-    CadastroComponent
+    CadastroComponent,
+    DetalhesComponent
   ],
   imports: [
     BrowserModule,
