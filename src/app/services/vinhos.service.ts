@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
-import { catchError } from 'rxjs/operators';
 
 import { Vinho } from '../models';
 
@@ -10,18 +9,27 @@ import { Vinho } from '../models';
   providedIn: 'root'
 })
 export class VinhosService {
+
+  url: string = 'api/vinhos';
+
   constructor(
     private http: HttpClient
   ) { }
 
   listar(): Observable<Array<Vinho>> {
-    return this.http.get('api/vinhos')      
+    return this.http.get(this.url)      
       .map(response => response as Array<Vinho>)
       .catch(this.handleError);
   }
 
   cadastrar(vinho: Vinho): Observable<Vinho> {
-    return this.http.post<Vinho>('api/vinhos', vinho, this.header())
+    return this.http.post<Vinho>(this.url, vinho, this.header())
+      .catch(this.handleError);
+  }
+
+  findById(id: number): Observable<Vinho> {
+    return this.http.get(`${this.url}/${id}`)      
+      .map(response => response as Array<Vinho>)
       .catch(this.handleError);
   }
 

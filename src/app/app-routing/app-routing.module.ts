@@ -18,7 +18,7 @@ const routes: Routes = [
     component: CadastroComponent
   },
   {
-    path: 'detalhe',
+    path: 'detalhe/:id',
     component: DetalhesComponent
   }
 ]

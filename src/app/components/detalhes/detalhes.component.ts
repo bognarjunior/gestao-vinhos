@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { VinhosService } from '../../services';
+import { Vinho } from '../../models';
 
 @Component({
   selector: 'app-detalhes',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalhesComponent implements OnInit {
 
-  constructor() { }
+  vinho: Vinho;
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private vinhoService: VinhosService
+  ) { }
 
   ngOnInit() {
+    this.vinho = new Vinho;
+    this.activatedRoute.params.forEach((params: Params) => {
+      const id = +params['id'];
+      if (id) {
+        this.buscarVinho(id);
+      }
+    });
+  }
+
+  private buscarVinho(id: number) {
+    this.vinhoService.findById(id)
+    .subscribe((vinho: Vinho) => this.vinho = vinho);
+  }
+
+  voltar(): void {
+    this.router.navigate(['/listar'])
   }
 
 }
