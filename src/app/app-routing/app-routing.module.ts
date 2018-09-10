@@ -18,6 +18,10 @@ const routes: Routes = [
     component: CadastroComponent
   },
   {
+    path: 'atualizar/:id',
+    component: CadastroComponent
+  },
+  {
     path: 'detalhe/:id',
     component: DetalhesComponent
   }

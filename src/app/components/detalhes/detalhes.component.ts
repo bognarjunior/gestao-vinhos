@@ -14,7 +14,7 @@ export class DetalhesComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private vinhoService: VinhosService
+    private vinhosService: VinhosService
   ) { }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class DetalhesComponent implements OnInit {
   }
 
   private buscarVinho(id: number) {
-    this.vinhoService.findById(id)
+    this.vinhosService.findById(id)
     .subscribe((vinho: Vinho) => this.vinho = vinho);
   }
 

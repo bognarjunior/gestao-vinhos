@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Vinho } from '../../models';
 import { VinhosService } from '../../services';
@@ -14,9 +14,11 @@ export class CadastroComponent implements OnInit {
   vinho: Vinho;
   uvas: Array<string>;
   classificacoes: Array<string>;
+  title: string;
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private vinhosService: VinhosService
   ) { }
 
@@ -27,6 +29,7 @@ export class CadastroComponent implements OnInit {
   private initValues(): void {
     
     this.vinho = new Vinho();
+    this.title = 'Cadastro de vinho';
 
     this.uvas = [
       'Cabernet Sauvignon', 
@@ -43,6 +46,14 @@ export class CadastroComponent implements OnInit {
       'Verde Seco',
       'Verde Suave'
     ];
+
+    this.activatedRoute.params.forEach((params: Params) => {
+      const id = +params['id'];
+      if (id) {
+        this.title = 'Edição de vinho';
+        this.buscarVinho(id);
+      }
+    });
   }
 
   salvar(): void {
@@ -53,6 +64,11 @@ export class CadastroComponent implements OnInit {
       alert("Vinho cadastrado com sucesso");
       this.router.navigate(['/listar']);        
     });
+  }
+
+  private buscarVinho(id: number) {
+    this.vinhosService.findById(id)
+    .subscribe((vinho: Vinho) => this.vinho = vinho);
   }
 
   voltar(): void {
