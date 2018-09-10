@@ -1,3 +1,13 @@
+<div class="form-group">
+  <label for="campoBusca">Buscar</label>
+  <input 
+    type="text" 
+    name="campoBusca" 
+    id="campoBusca" 
+    class="form-control"
+    [(ngModel)]="campoBusca"
+  >
+</div>
 <table class="table table-stripped table-hover">
   <thead>
     <tr>
@@ -10,7 +20,7 @@
   </thead>
   <tbody>
     <tr 
-      *ngFor="let vinho of vinhos" 
+      *ngFor="let vinho of vinhos | filtroTabela: campoBusca" 
       (click)="selecionar(vinho)" 
       [ngClass]="{'alert-success' : vinhoSelecionado == vinho }"
     >

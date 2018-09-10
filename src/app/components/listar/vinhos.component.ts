@@ -13,6 +13,7 @@ export class VinhosComponent implements OnInit {
 
   vinhos: Array<Vinho>;
   vinhoSelecionado: Vinho;
+  campoBusca: string;
 
   constructor(
     private router: Router,
