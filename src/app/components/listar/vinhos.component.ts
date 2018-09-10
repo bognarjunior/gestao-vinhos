@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Vinho } from './../../models';
-import { VinhosService } from './../../services';
+import { VinhosService, NotificacaoService } from './../../services';
 
 @Component({
   selector: 'listar-vinhos',
@@ -16,7 +16,8 @@ export class VinhosComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public vinhosService: VinhosService
+    public vinhosService: VinhosService,
+    public notificacaoService: NotificacaoService
   ) { }
 
   ngOnInit() {
@@ -42,6 +43,9 @@ export class VinhosComponent implements OnInit {
 
   remover() {
     this.vinhosService.remover(this.vinhoSelecionado.id)
-    .subscribe(() => this.listar());
+    .subscribe(() => {
+      this.notificacaoService.perigo('Vinho deletado com sucesso');
+      this.listar()
+    });
   }
 }

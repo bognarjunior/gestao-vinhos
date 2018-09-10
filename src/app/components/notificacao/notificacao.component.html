@@ -1,3 +1,5 @@
-<p>
-  notificacao works!
-</p>
+<div *ngIf="notificacao">
+  <div [@visibilidade]="status" [ngClass]="['alert', tipoAlerta()]">  
+    {{notificacao.mensagem}}  
+  </div>
+</div>

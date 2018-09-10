@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Vinho } from '../../models';
-import { VinhosService } from '../../services';
+import { Vinho, Notificacao } from '../../models';
+import { VinhosService, NotificacaoService } from '../../services';
 
 @Component({
   selector: 'cadastrar-vinho',
@@ -19,7 +19,8 @@ export class CadastroComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private vinhosService: VinhosService
+    private vinhosService: VinhosService,
+    private notificacaoService: NotificacaoService
   ) { }
 
   ngOnInit() {
@@ -71,12 +72,18 @@ export class CadastroComponent implements OnInit {
 
   private cadastrarVinho() {
     this.vinhosService.cadastrar(this.vinho)
-    .subscribe(() => this.router.navigate(['/listar']));
+    .subscribe(() => {
+      this.notificacaoService.sucesso('Vinho cadastrado com sucesso');
+      this.router.navigate(['/listar'])
+    });
   }
 
   private atualizarVinho() {
     this.vinhosService.atualizar(this.vinho.id, this.vinho)
-      .subscribe(() => this.router.navigate(['/listar']));
+      .subscribe(() => {
+        this.notificacaoService.sucesso('Vinho atualizado com sucesso');
+        this.router.navigate(['/listar'])
+      });
   }
 
   voltar(): void {
