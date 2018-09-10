@@ -11,7 +11,6 @@ import { VinhosComponent, CadastroComponent, DetalhesComponent } from './compone
 import { VinhosService } from './services';
 import { VinhoApi } from './api';
 
-
 @NgModule({
   declarations: [
     AppComponent,
