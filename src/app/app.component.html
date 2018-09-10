@@ -17,6 +17,8 @@
       </li>
     </ul>
   </div>
+  <a href="#" class="navbar-brand">Bem-vindo, {{nomeUser | uppercase }}</a>
+  <a href="#" class="navbar-brand">hoje é dia: {{dataHoje | date: 'dd/MM/yyyy' }}</a>
 </nav>
 <div class="body container">
   <app-notificacao></app-notificacao>

@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Gestão de Vinhos';
+  dataHoje = new Date();
+  nomeUser = 'Bognar Junior';
 }
