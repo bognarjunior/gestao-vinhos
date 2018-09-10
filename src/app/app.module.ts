@@ -5,14 +5,22 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-
 import { AppRoutingModule } from './app-routing';
 
 import { AppComponent } from './app.component';
-import { VinhosComponent, CadastroComponent, DetalhesComponent, NotificacaoComponent } from './components';
-import { VinhosService, NotificacaoService } from './services';
+import {
+  VinhosComponent,
+  CadastroComponent,
+  DetalhesComponent,
+  NotificacaoComponent
+} from './components';
+import {
+  VinhosService,
+  NotificacaoService
+} from './services';
 import { VinhoApi } from './api';
 import { FiltroTabelaPipe } from './pipes';
+import { DestacarEstiloDirective } from './diretivas';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,8 @@ import { FiltroTabelaPipe } from './pipes';
     CadastroComponent,
     DetalhesComponent,
     NotificacaoComponent,
-    FiltroTabelaPipe
+    FiltroTabelaPipe,
+    DestacarEstiloDirective
   ],
   imports: [
     BrowserModule,
