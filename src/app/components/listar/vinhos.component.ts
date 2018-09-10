@@ -31,4 +31,8 @@ export class VinhosComponent implements OnInit {
   visualizar() {
     this.router.navigate(['/detalhe', this.vinhoSelecionado.id]);
   }
+
+  editar() {
+    this.router.navigate(['/atualizar', this.vinhoSelecionado.id]);
+  }
 }

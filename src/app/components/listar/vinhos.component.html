@@ -8,10 +8,15 @@
       <th>Fabricante</th>
       <th>Ano de Safra</th>
       <th>País de Origem</th>
+      <th>Ação</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let vinho of vinhos" (click)="selecionar(vinho)">
+    <tr 
+      *ngFor="let vinho of vinhos" 
+      (click)="selecionar(vinho)" 
+      [ngClass]="{'alert-success' : vinhoSelecionado == vinho }"
+    >
       <td>{{vinho.id}}</td>
       <td>{{vinho.nome}}</td>
       <td>{{vinho.uva}}</td>
@@ -19,10 +24,13 @@
       <td>{{vinho.fabricante}}</td>
       <td>{{vinho.anoSafra}}</td>
       <td>{{vinho.paisOrigem}}</td>
+      <td>
+        <div *ngIf="vinhoSelecionado && vinhoSelecionado == vinho ">
+          <button (click)="visualizar()" class="btn btn-primary">Visualizar</button> 
+          <button class="btn btn-warning" (click)="editar()">Editar</button>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
-<div *ngIf="vinhoSelecionado" class="float right">
-  Vinho selecionado = {{vinhoSelecionado.nome}} 
-  <button (click)="visualizar()" class="btn btn-primary">Visualizar</button> 
-</div>
+
