@@ -32,6 +32,11 @@ export class VinhosService {
       .catch(this.handleError);
   }
 
+  remover(id: number): Observable<Vinho> {
+    return this.http.delete(`${this.url}/${id}`, this.header())
+      .catch(this.handleError);
+  }
+
   findById(id: number): Observable<Vinho> {
     return this.http.get(`${this.url}/${id}`)      
       .map(response => response as Array<Vinho>)

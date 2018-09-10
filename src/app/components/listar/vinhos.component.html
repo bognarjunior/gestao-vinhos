@@ -1,13 +1,10 @@
 <table class="table table-stripped table-hover">
   <thead>
     <tr>
-      <th>Id</th>
       <th>Nome</th>
       <th>Uva</th>
       <th>Classificação</th>
-      <th>Fabricante</th>
       <th>Ano de Safra</th>
-      <th>País de Origem</th>
       <th>Ação</th>
     </tr>
   </thead>
@@ -17,17 +14,15 @@
       (click)="selecionar(vinho)" 
       [ngClass]="{'alert-success' : vinhoSelecionado == vinho }"
     >
-      <td>{{vinho.id}}</td>
       <td>{{vinho.nome}}</td>
       <td>{{vinho.uva}}</td>
       <td>{{vinho.classificacao}}</td>
-      <td>{{vinho.fabricante}}</td>
       <td>{{vinho.anoSafra}}</td>
-      <td>{{vinho.paisOrigem}}</td>
       <td>
         <div *ngIf="vinhoSelecionado && vinhoSelecionado == vinho ">
-          <button (click)="visualizar()" class="btn btn-primary">Visualizar</button> 
-          <button class="btn btn-warning" (click)="editar()">Editar</button>
+          <button class="btn btn-success btn-size" (click)="visualizar()"><i class="fas fa-info"></i></button> 
+          <button class="btn btn-warning btn-size" (click)="editar()"><i class="far fa-edit"></i></button>
+          <button class="btn btn-danger btn-size" (click)="remover()"> <i class="fas fa-trash"></i></button>
         </div>
       </td>
     </tr>

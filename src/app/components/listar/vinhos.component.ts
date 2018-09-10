@@ -20,6 +20,10 @@ export class VinhosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.listar();
+  }
+
+  private listar() {
     this.vinhosService.listar()
       .subscribe((vinhos: Array<Vinho>) => this.vinhos = vinhos);
   }
@@ -34,5 +38,10 @@ export class VinhosComponent implements OnInit {
 
   editar() {
     this.router.navigate(['/atualizar', this.vinhoSelecionado.id]);
+  }
+
+  remover() {
+    this.vinhosService.remover(this.vinhoSelecionado.id)
+    .subscribe(() => this.listar());
   }
 }
