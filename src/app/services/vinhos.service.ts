@@ -27,6 +27,11 @@ export class VinhosService {
       .catch(this.handleError);
   }
 
+  atualizar(id: number, vinho: Vinho): Observable<Vinho> {
+    return this.http.put<Vinho>(`${this.url}/${id}`, vinho, this.header())
+      .catch(this.handleError);
+  }
+
   findById(id: number): Observable<Vinho> {
     return this.http.get(`${this.url}/${id}`)      
       .map(response => response as Array<Vinho>)

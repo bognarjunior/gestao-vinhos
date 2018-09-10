@@ -21,7 +21,7 @@ export class VinhosComponent implements OnInit {
 
   ngOnInit() {
     this.vinhosService.listar()
-    .subscribe((vinhos: Array<Vinho>) => this.vinhos = vinhos);
+      .subscribe((vinhos: Array<Vinho>) => this.vinhos = vinhos);
   }
 
   selecionar(vinho: Vinho) {

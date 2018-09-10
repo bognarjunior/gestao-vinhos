@@ -57,18 +57,26 @@ export class CadastroComponent implements OnInit {
   }
 
   salvar(): void {
-    
-    this.vinhosService.cadastrar(this.vinho)
-    .subscribe(response => {
-      console.log(JSON.stringify(response)); 
-      alert("Vinho cadastrado com sucesso");
-      this.router.navigate(['/listar']);        
-    });
+    if (this.vinho.id) {
+      this.atualizarVinho();
+    } else {
+      this.cadastrarVinho();
+    }
   }
 
   private buscarVinho(id: number) {
     this.vinhosService.findById(id)
-    .subscribe((vinho: Vinho) => this.vinho = vinho);
+      .subscribe((vinho: Vinho) => this.vinho = vinho);
+  }
+
+  private cadastrarVinho() {
+    this.vinhosService.cadastrar(this.vinho)
+    .subscribe(() => this.router.navigate(['/listar']));
+  }
+
+  private atualizarVinho() {
+    this.vinhosService.atualizar(this.vinho.id, this.vinho)
+      .subscribe(() => this.router.navigate(['/listar']));
   }
 
   voltar(): void {
