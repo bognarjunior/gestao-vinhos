@@ -7,8 +7,8 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing';
 
 import { AppComponent } from './app.component';
-import { VinhosComponent, CadastroComponent, DetalhesComponent } from './components';
-import { VinhosService } from './services';
+import { VinhosComponent, CadastroComponent, DetalhesComponent, NotificacaoComponent } from './components';
+import { VinhosService, NotificacaoService } from './services';
 import { VinhoApi } from './api';
 
 @NgModule({
@@ -16,7 +16,8 @@ import { VinhoApi } from './api';
     AppComponent,
     VinhosComponent,
     CadastroComponent,
-    DetalhesComponent
+    DetalhesComponent,
+    NotificacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,8 @@ import { VinhoApi } from './api';
     AppRoutingModule
   ],
   providers: [
-    VinhosService
+    VinhosService,
+    NotificacaoService
   ],
   bootstrap: [AppComponent]
 })
