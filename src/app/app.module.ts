@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { VinhosComponent, CadastroComponent, DetalhesComponent, NotificacaoComponent } from './components';
 import { VinhosService, NotificacaoService } from './services';
 import { VinhoApi } from './api';
-
+import { FiltroTabelaPipe } from './pipes';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { VinhoApi } from './api';
     VinhosComponent,
     CadastroComponent,
     DetalhesComponent,
-    NotificacaoComponent
+    NotificacaoComponent,
+    FiltroTabelaPipe
   ],
   imports: [
     BrowserModule,
