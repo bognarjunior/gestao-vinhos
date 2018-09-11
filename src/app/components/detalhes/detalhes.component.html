@@ -1,5 +1,4 @@
-<div class="container">
-  <h2>Visualizar Vinhos</h2>  
+<page-container [title]="title"> 
   <div class="form-group">
     <label for="vinho">Nome</label>
     <input type="text" class="form-control" id="nome" name="nome" [ngModel]="vinho.nome" readonly>      
@@ -33,4 +32,4 @@
       (click)="voltar()" 
     >Voltar</button>
   </div>
-</div>
+</page-container>

@@ -1,5 +1,4 @@
-<div class="container">
-  <h2>{{title}}</h2>
+<page-container [title]="title">
   <form (ngSubmit)="salvar()" #cadForm="ngForm">
     <div class="form-group">
       <label for="vinho">Nome</label>
@@ -113,4 +112,4 @@
       >Voltar</button>
     </div>
   </form>
-</div>
+</page-container>

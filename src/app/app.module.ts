@@ -12,7 +12,8 @@ import {
   VinhosComponent,
   CadastroComponent,
   DetalhesComponent,
-  NotificacaoComponent
+  NotificacaoComponent,
+  PageContainerComponent
 } from './components';
 import {
   VinhosService,
@@ -30,7 +31,8 @@ import { DestacarEstiloDirective } from './diretivas';
     DetalhesComponent,
     NotificacaoComponent,
     FiltroTabelaPipe,
-    DestacarEstiloDirective
+    DestacarEstiloDirective,
+    PageContainerComponent
   ],
   imports: [
     BrowserModule,

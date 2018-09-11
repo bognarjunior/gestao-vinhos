@@ -11,6 +11,7 @@ import { Vinho } from '../../models';
 export class DetalhesComponent implements OnInit {
 
   vinho: Vinho;
+  title: string;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -19,6 +20,7 @@ export class DetalhesComponent implements OnInit {
 
   ngOnInit() {
     this.vinho = new Vinho;
+    this.title = 'Detalhes do vinho';
     this.activatedRoute.params.forEach((params: Params) => {
       const id = +params['id'];
       if (id) {
